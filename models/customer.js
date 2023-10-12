@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const classmateSchema = new mongoose.Schema({
+const customerSchema = new mongoose.Schema({
     Name: {
         type: String,
         required: true
@@ -13,4 +13,4 @@ const classmateSchema = new mongoose.Schema({
 });
 
 
-export default mongoose.model("Classmate", classmateSchema);
+export default mongoose.model("Customer", customerSchema);

@@ -5,7 +5,7 @@ import mongoose from "mongoose";
 import cors from "cors";
 
 // Import routes
-import classmatesRoute from "./routes/classmate.js";
+import customersRoute from "./routes/customer.js";
 
 // Create an express application
 const app = express();
@@ -23,7 +23,7 @@ db.once('open', () => console.log('Connected to Database'));
 app.use(express.json());
 
 // Routes
-app.use("/classmate", classmatesRoute);
+app.use("/customer", customersRoute);
 
 // Port connection
 app.listen(3001, () => console.log('server started'));
