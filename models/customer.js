@@ -1,13 +1,13 @@
 import mongoose from "mongoose";
 
 const customerSchema = new mongoose.Schema({
-    Name: {
+    name: {
         type: String,
         required: true
     },
 
-    Age: {
-        type: String,
+    age: {
+        type: Number,
         required: true
     }
 });

@@ -3,8 +3,8 @@ import customerSchema from "../models/customer.js";
 //create one
 export const createCustomer = async (req, res) => {
     const customer = new customerSchema({
-        Name: req.body.Name,
-        Age: req.body.Age
+        name: req.body.name,
+        age: req.body.age
     })
     try {
         const newCustomer = await customer.save()
@@ -27,7 +27,7 @@ export const getCustomers = async (req, res) => {
 // get one
 export const getCustomer = async (req, res) => {
     try {
-        const customer = await customerSchema.findById(req.params.id).populate("Name").populate("Age");
+        const customer = await customerSchema.findById(req.params.id).populate("name").populate("age");
         if (!customer) {
             return res.status(404).json({ message: "Customer not found" });
         }

@@ -6,6 +6,7 @@ import cors from "cors";
 
 // Import routes
 import customersRoute from "./routes/customer.js";
+import tripsRoute from "./routes/trip.js";
 
 // Create an express application
 const app = express();
@@ -24,6 +25,7 @@ app.use(express.json());
 
 // Routes
 app.use("/customer", customersRoute);
+app.use("/trip", tripsRoute);
 
 // Port connection
 app.listen(3001, () => console.log('server started'));
