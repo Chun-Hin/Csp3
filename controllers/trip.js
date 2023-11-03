@@ -18,7 +18,7 @@ export const createTrip = async (req, res) => {
 // get all
 export const getTrips = async (req, res) => {
     try {
-        const trip = await tripSchema.find().populate('customerId');
+        const trip = await tripSchema.find();
         res.json(trip)
     } catch (err) {
         res.status(500).json({message: err.message})

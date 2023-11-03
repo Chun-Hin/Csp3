@@ -1,4 +1,6 @@
 import express from "express";
+import authorize from "../middlewares/auth.js";
+
 import {
     createTrip,
     getTrips,
@@ -11,17 +13,17 @@ import {
 const router = express.Router();
 
 // create
-router.post('/', createTrip)
+router.post('/', authorize('admin'), createTrip)
 
 // get all
-router.get('/', getTrips)
+router.get('/', authorize('admin'), getTrips);
 
 // get by id
-router.get('/:id', getTrip)
+router.get('/:id', authorize('admin'), getTrip);
 
 // update one
-router.patch('/:id', updateTrip)
+router.patch('/:id', authorize('admin'), updateTrip)
 
 // delete one
-router.delete('/:id', deleteTrip)
+router.delete('/:id', authorize('admin'), deleteTrip)
 export default router;

@@ -1,4 +1,5 @@
 import express from "express";
+import authorize from "../middlewares/auth.js";
 import {
     createCustomer,
     getCustomers,
@@ -7,21 +8,24 @@ import {
     deleteCustomer
 } from "../controllers/customer.js";
 
+
 // Create a new router (endpoints)
 const router = express.Router();
 
 // create
-router.post('/', createCustomer)
+router.post('/', authorize('admin'), createCustomer);
 
 // get all
-router.get('/', getCustomers)
+router.get('/', authorize('user'), getCustomers);
 
 // get by id
-router.get('/:id', getCustomer)
+router.get('/:id', authorize('user'), getCustomer);
 
 // update one
-router.patch('/:id', updateCustomer)
+router.patch('/:id', authorize('user'), updateCustomer);
 
 // delete one
-router.delete('/:id', deleteCustomer)
+router.delete('/:id', authorize('user'), deleteCustomer);
+
+
 export default router;
