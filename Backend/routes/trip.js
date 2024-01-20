@@ -13,17 +13,17 @@ import {
 const router = express.Router();
 
 // create
-router.post('/', authorize('admin'), createTrip)
+router.post('/', createTrip)
 
 // get all
-router.get('/', authorize('admin'), getTrips);
+router.get('/', getTrips);
 
 // get by id
-router.get('/:id', authorize('admin'), getTrip);
+router.get('/:id', getTrip);
 
 // update one
-router.patch('/:id', authorize('admin'), updateTrip)
+router.patch('/:id', updateTrip)
 
 // delete one
-router.delete('/:id', authorize('admin'), deleteTrip)
+router.delete('/:id', deleteTrip)
 export default router;

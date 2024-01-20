@@ -9,6 +9,7 @@ import customersRoute from "./routes/customer.js";
 import tripsRoute from "./routes/trip.js";
 import registerRoute from "./routes/auth/register.js";
 import loginRoute from "./routes/auth/login.js";
+import userRoute from "./routes/users.js"
 
 // Create an express application
 const app = express();
@@ -28,9 +29,10 @@ app.use("/customer", customersRoute);
 app.use("/trip", tripsRoute);
 app.use('/auth/register', registerRoute);
 app.use('/auth/login', loginRoute);
+app.use('/users', userRoute);
 
 // Port connection
-app.listen(3000, () => console.log('server started'));
+app.listen(3002, () => console.log('server started'));
 
 
 

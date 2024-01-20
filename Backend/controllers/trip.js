@@ -18,12 +18,21 @@ export const createTrip = async (req, res) => {
 // get all
 export const getTrips = async (req, res) => {
     try {
-        const trip = await tripSchema.find();
-        res.json(trip)
+        // Fetch trips and populate the user field with the username
+        const trips = await tripSchema.find().populate('user', 'username');
+
+        // Extract the relevant information
+        const populatedTrips = trips.map((trip) => {
+            return{
+            destination: trip.destination,
+            username: trip.user.username,
+        }});
+
+        res.json(populatedTrips);
     } catch (err) {
-        res.status(500).json({message: err.message})
+        res.status(500).json({ message: err.message });
     }
-}
+};
 
 // get one
 export const getTrip = async (req, res) => {

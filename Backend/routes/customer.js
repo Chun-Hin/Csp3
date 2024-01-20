@@ -13,19 +13,19 @@ import {
 const router = express.Router();
 
 // create
-router.post('/', authorize('admin'), createCustomer);
+router.post('/', createCustomer);
 
 // get all
-router.get('/', authorize('user'), getCustomers);
+router.get('/', getCustomers);
 
 // get by id
-router.get('/:id', authorize('user'), getCustomer);
+router.get('/:id', getCustomer);
 
 // update one
-router.patch('/:id', authorize('user'), updateCustomer);
+router.patch('/:id', updateCustomer);
 
 // delete one
-router.delete('/:id', authorize('user'), deleteCustomer);
+router.delete('/:id', deleteCustomer);
 
 
 export default router;
